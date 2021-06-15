@@ -16,6 +16,7 @@ Sebelum memulai menggunakan **Framework Codeigniter**, perlu dilakukan konfigura
 ### Langkah 1
 #### Mengaktifkan Ekstensi
 Aktifkan ekstensi tersebut melalui **XAMPP Control Panel** pada bagian **Apache** dengan cara klik **Config** -> **PHP.ini** seperti berikut.
+
 ![SS LANGKAH 1](https://user-images.githubusercontent.com/56240719/122015374-3fb80d00-cdea-11eb-8bbc-fcc4e8791281.png)
 
 Lalu pada bagian **extention**, hilangkan tanda ; (titik koma) pada ekstensi yang akan diaktifkan seperti berikut. Kemudian simpan kembali filenya dan restart **Apache** web server.
@@ -71,7 +72,7 @@ Method ini belum ada pada **routing**, sehingga cara mengaksesnya dengan menggun
 
 ### Langkah 8
 #### Membuat View
-Selanjutnya adalah membuat **view** untuk tampilan web agar lebih menarik. Buat file baru dengan nama **about.php** pada direktori **view **(app/view/about.php)** kemudian isi kodenya seperti berikut.
+Selanjutnya adalah membuat **view** untuk tampilan web agar lebih menarik. Buat file baru dengan nama **about.php** pada direktori view **(app/view/about.php)** kemudian isi kodenya seperti berikut.
 Kemudian ubah method **about** pada class **Controller Page** menjadi seperti berikut.
 ![SS LANGKAH 8](https://user-images.githubusercontent.com/56240719/122099246-fbedf380-ce3b-11eb-8e72-6ac1cead56c0.png)
 Maka hasilnya akan seperti berikut.
