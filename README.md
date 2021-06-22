@@ -83,7 +83,7 @@ Maka hasilnya akan seperti berikut.
 Pada dasarnya layout web dengan **css** dapat diimplementasikan dengan mudah pada **Codeigniter.** Yang perlu diketahui adalah pada **Codeigniter 4** file yang menyimpan asset **css** dan **javascript** terletak pada direktori public. Buat file **css** pada direktori public dengan nama **style.css** seperti berikut.
 ![SS LANGKAH 9](https://user-images.githubusercontent.com/56240719/122100366-4cb21c00-ce3d-11eb-846d-662dcec93cee.png)
 
-Kemudian buat folder **template** pada direktori **view** kemudian buat file **header.php** dan **footer.php** seperti berikut.
+Kemudian buat folder **template** pada direktori **view** ke mudian buat file **header.php** dan **footer.php** seperti berikut.
 ![SS LANGKAH 9 (TAMBAHAN)](https://user-images.githubusercontent.com/56240719/122100733-b16d7680-ce3d-11eb-97a2-9892e2c78661.png)
 
 Maka hasilnya seperti berikut.
@@ -96,6 +96,113 @@ Lengkapi kode program untuk menu lainnya yang ada pada **Controller Page**, sehi
 ## Hasilnya
 ![SS JAWABAN](https://user-images.githubusercontent.com/56240719/122105421-f3e58200-ce42-11eb-976d-d013cc0d30b2.png)
 ![SS JAWABAN 2](https://user-images.githubusercontent.com/56240719/122105443-fa73f980-ce42-11eb-8c8d-72399685595d.png)
+
+# Praktikum 12: Framework Lanjutan (CRUD) - Pemrograman Web
+## Langkah-langkah Praktikum
+### Persiapan
+Untuk memulai membuat aplikasi CRUD sederhana, yang perlu disiapkan adalah database server menggunakan MySQL. Pastikan MySQL Server sudah dapat dijalankan melalui XAMPP seperti berikut.
+![SS XAMPP](https://user-images.githubusercontent.com/56240719/122888019-a483e200-d36b-11eb-8eab-73740d9e6e86.png)
+
+### Langkah 1
+Membuat database kemudian membuat Tabel dan masukkan kode pada database query seperti berikut.
+![SS LANGKAH 1](https://user-images.githubusercontent.com/56240719/122888714-4c011480-d36c-11eb-8781-24651e1e6dd5.png)
+
+### Langkah 2
+#### Konfigurasi koneksi database
+Selanjutnya membuat konfigurasi untuk menghubungkan dengan database server. Kemudian melakukan konfigurasi dengan cara mengubah beberapa kode pada file `htdocs\lab11_php_ci\ci4\.env.` Lalu cari pada line **DATABASE** dan hilangkan tanda pagar (`#`) didepan seperti berikut ini. 
+![SS LANGKAH 2](https://user-images.githubusercontent.com/56240719/122949560-f47f9a80-d3a5-11eb-9223-cee1b01ed023.png)
+
+### Langkah 3
+#### Membuat Model
+Selanjutnya adalah membuat Model untuk memproses data **Artikel**. Buat file baru pada direktori **app/Models** dengan nama **ArtikelModel.php** lalu masukkan kode seperti berikut.
+![SS LANGKAH 3](https://user-images.githubusercontent.com/56240719/122951544-8d62e580-d3a7-11eb-9c66-d7f26404f903.png)
+
+### Langkah 4
+#### Membuat Controller
+Buat `Controller` baru dengan nama **Artikel.php** pada direktori **app/Controllers** lalu masukkan kode seperti berikut. 
+![SS LANGKAH 4](https://user-images.githubusercontent.com/56240719/122952356-30b3fa80-d3a8-11eb-9975-c7da435e93c7.png)
+
+### Langkah 5
+#### Membuat View
+Buat folder baru dengan nama **artikel** pada direktori **app/views**, kemudian buat file baru dengan nama **index.php** seperti berikut.
+![SS LANGKAH 5](https://user-images.githubusercontent.com/56240719/122953089-a5873480-d3a8-11eb-87e3-9125aa82c0ef.png)
+
+Selanjutnya buka browser kembali, dengan mengakses url http://localhost:8080/artikel maka hasilnya akan seperti berikut.
+![SS LANGKAH 5 (TAMBAHAN)](https://user-images.githubusercontent.com/56240719/122953334-d5363c80-d3a8-11eb-9ca2-7e19b982353a.png)
+
+Terlihat belum ada data yang diampilkan. Kemudian coba tambahkan beberapa data pada database query agar dapat ditampilkan datanya seperti berikut.
+![SS LANGKAH 5 (TAMBAHAN 2)](https://user-images.githubusercontent.com/56240719/122955416-4b876e80-d3aa-11eb-8231-062bcbabee5c.png)
+
+Lalu refresh kembali browser, sehingga akan ditampilkan hasilnya seperti berikut.
+![SS LANGKAH 5 (TAMBAHAN 3)](https://user-images.githubusercontent.com/56240719/122955891-b9cc3100-d3aa-11eb-88d6-e917603ef5b7.png)
+
+### Langkah 6
+#### Membuat Tampilan Detail Artikel
+Tampilan pada saat judul berita di klik maka akan diarahkan ke halaman yang berbeda. Tambahkan fungsi baru pada **Controller Artikel** dengan nama **view()** seperti berikut.
+![SS LANGKAH 6](https://user-images.githubusercontent.com/56240719/122958662-1cbec780-d3ad-11eb-8462-af13a1beab01.png)
+
+### Langkah 7
+#### Membuat View Detail
+Buat view baru untuk halaman detail dengan nama **app/views/artikel/detail.php** seperti berikut.
+![SS LANGKAH 7](https://user-images.githubusercontent.com/56240719/122957224-edf42180-d3ab-11eb-8d6d-00b9268f3676.png)
+
+### Langkah 8
+#### Membuat Routing untuk artikel detail
+Buka kembali file **app/config/Routes.php**, kemudian tambahkan `routing` untuk `artikel detail` maka hasilnya akan seperti berikut.
+![SS LANGKAH 8](https://user-images.githubusercontent.com/56240719/122960792-f9484c80-d3ad-11eb-9b3c-64e52ef8895b.png)
+
+### Langkah 9
+#### Membuat Menu Admin
+Menu `admin` adalah untuk proses `CRUD` data `artikel`. Buat method baru pada **Controller Artikel** dengan nama **admin_index()** seperti berikut.
+![SS LANGKAH 9](https://user-images.githubusercontent.com/56240719/122967930-3237ef80-d3b5-11eb-9983-6fd69bb26db9.png)
+
+Selanjutnya buat `view` untuk tampilan `admin` dengan nama **admin_index.php** seperti berikut.
+![SS LANGKAH 9 (TAMBAHAN)](https://user-images.githubusercontent.com/56240719/122969149-898a8f80-d3b6-11eb-8e7b-ec3a2c1c726d.png)
+![SS LANGKAH 9 (TAMBAHAN 2)](https://user-images.githubusercontent.com/56240719/122969183-914a3400-d3b6-11eb-94a0-d3d9ff880e9c.png)
+
+Setelah itu tambahkan **routing** untuk menu `admin` seperti berikut.
+![SS LANGKAH 9 (TAMBAHAN 3)](https://user-images.githubusercontent.com/56240719/122969531-f3a33480-d3b6-11eb-91d8-4beb016125bd.png)
+
+Setelah itu buat `template header dan footer` baru untuk `Halaman Admin.` Kemudian buat file baru dengan nama **admin_header.php** pada direktori app/view/template seperti berikut.
+![TAMBAHAN 1](https://user-images.githubusercontent.com/56240719/122972401-4df1c480-d3ba-11eb-85f8-5fa5b3b21457.png)
+
+Lalu buat file baru lagi dengan nama **admin_footer.php** pada direktori **app/view/template** seperti berikut.
+![TAMBAHAN 2](https://user-images.githubusercontent.com/56240719/122972608-86919e00-d3ba-11eb-9033-c1770c1ebe33.png)
+
+Dan yang terakhir buat file baru lagi dengan nama **admin.css** pada direktori **ci4/public** untuk memperindah tampilan Halaman Admin seperti berikut.
+![TAMBAHAN 3](https://user-images.githubusercontent.com/56240719/122973184-2818ef80-d3bb-11eb-906d-77079cedf5ad.png)
+![TAMBAHAN 4](https://user-images.githubusercontent.com/56240719/122973209-2ea76700-d3bb-11eb-954f-d91c3dac3e0c.png)
+
+Kemudian akses menu admin dengan url http://localhost:8080/admin/artikel seperti berikut.
+![SS LANGKAH 9 (TAMBAHAN 4)](https://user-images.githubusercontent.com/56240719/122969690-20574c00-d3b7-11eb-9e46-083de84cbb76.png)
+
+
+### Langkah 10
+#### Menambah Data Artikel
+Tambahkan fungsi/method baru pada **Controller Artikel** dengan nama **add()** seperti berikut.
+![SS LANGKAH 10](https://user-images.githubusercontent.com/56240719/122969914-6b715f00-d3b7-11eb-90a7-84f367a3f685.png)
+
+Kemudian buat `view` untuk form tambah dengan nama **form_add.php** seperti berikut.
+![SS LANGKAH 10 (TAMBAHAN)](https://user-images.githubusercontent.com/56240719/122970228-d6229a80-d3b7-11eb-9847-803140827d04.png)
+
+Setelah itu, lalu klik **Tambah Artikel** pada menu **Halaman Admin** Maka hasilnya akan seperti berikut.
+![SS LANGKAH 10 (TAMBAHAN 2)](https://user-images.githubusercontent.com/56240719/122970590-50531f00-d3b8-11eb-9753-1042ef352757.png)
+
+### Langkah 11
+#### Mengubah Data
+Tambahkan fungsi/method baru pada **Controller Artikel** dengan nama **edit()** seperti berikut.
+![SS LANGKAH 10 (TAMBAHAN 3)](https://user-images.githubusercontent.com/56240719/122970873-98724180-d3b8-11eb-910b-4b8e21dd7e3e.png)
+
+Kemudian buat `view` untuk form tambah dengan nama **form_edit.php**
+![SS LANGKAH 10 (TAMBAHAN 4)](https://user-images.githubusercontent.com/56240719/122971032-c8b9e000-d3b8-11eb-95bd-5d99fc0a788b.png)
+
+Setelah itu, lalu klik **Ubah** pada salah satu judul artikel, maka hasilnya akan seperti berikut.
+![SS LANGKAH 10 (TAMBAHAN 5)](https://user-images.githubusercontent.com/56240719/122971416-3960fc80-d3b9-11eb-9639-18f9a2c95bb8.png)
+
+### Langkah 12
+#### Menghapus Data
+Tambahkan fungsi/method baru pada **Controller Artikel** dengan nama **delete()** seperti berikut.  
+![SS LANGKAH 11](https://user-images.githubusercontent.com/56240719/122971723-8ba21d80-d3b9-11eb-8257-adefaa1006a4.png)
 
 
 
