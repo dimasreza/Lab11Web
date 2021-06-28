@@ -204,5 +204,78 @@ Setelah itu, lalu klik **Ubah** pada salah satu judul artikel, maka hasilnya aka
 Tambahkan fungsi/method baru pada **Controller Artikel** dengan nama **delete()** seperti berikut.  
 ![SS LANGKAH 11](https://user-images.githubusercontent.com/56240719/122971723-8ba21d80-d3b9-11eb-8257-adefaa1006a4.png)
 
+# Praktikum 13: Framework Lanjutan (Modul Login)
+## Langkah-langkah Praktikum
+### Persiapan
+Untuk memulai membuat modul Login, yang perlu dipersiapkan adalah database server menggunakan MySQL. Pastikan MySQL Server sudah dapat dijalankan melalui XAMPP seperti berikut.
+![SS XAMPP](https://user-images.githubusercontent.com/56240719/123578693-8b15e680-d800-11eb-98c5-6c1af43575a7.png)
+
+### Langkah 1
+#### Membuat Tabel User
+Membuat tabel user pada database `lab_ci4` seperti berikut.
+![SS LANGKAH 1](https://user-images.githubusercontent.com/56240719/123579110-6e2de300-d801-11eb-99fd-fa62130f696d.png)
+
+### Langkah 2
+#### Membuat Model User
+Selanjutnya adalah membuat Model untuk memproses data Login. Buat file baru pada direktori **app/Models** dengan nama **UserModel.php** dan masukkan kode seperti berikut. 
+![SS LANGKAH 2](https://user-images.githubusercontent.com/56240719/123579535-4723e100-d802-11eb-8962-e1b0ea98645a.png)
+
+### Langkah 3
+#### Membuat Controller User
+Buat Controller baru dengan nama **User.php** pada direktori **app/Controllers**. Kemudian tambahkan method **index()** untuk menampilkan daftar user, dan method **login()** untuk proses login dan masukkan kode seperti berikut.
+![SS LANGKAH 3](https://user-images.githubusercontent.com/56240719/123580549-4a1fd100-d804-11eb-83c1-0698c089cc75.png)
+![SS LANGKAH 3 (TAMBAHAN)](https://user-images.githubusercontent.com/56240719/123580577-57d55680-d804-11eb-8406-d08228861f14.png)
+
+### Langkah 4
+#### Membuat View Login
+Buat folder baru dengan nama **user** pada direktori **app/views**, kemudian buat file baru dengan nama **login.php** dan masukkan kode seperti berikut.
+![SS LANGKAH 4](https://user-images.githubusercontent.com/56240719/123580877-e649d800-d804-11eb-8e18-0e34da366f2a.png)
+
+### Langkah 5
+#### Membuat Database Seeder
+Database seeder digunakan untuk membuat data dummy. Untuk keperluan ujicoba modul login, kita perlu memasukkan data user dan password kedalam database. Untuk itu buat database seeder untuk tabel user. Buka **CLI**, kemudian ketik perintah berikut:
+![SS LANGKAH 5](https://user-images.githubusercontent.com/56240719/123581354-e8606680-d805-11eb-8806-7cb4c6373eb1.png)
+
+Selanjutnya, buka file **UserSeeder.php** yang berada di lokasi direktori **/app/Database/Seeds/UserSeeder.php** kemudian isi dengan kode berikut:
+![SS LANGKAH 5 (TAMBAHAN)](https://user-images.githubusercontent.com/56240719/123581573-66247200-d806-11eb-8bd2-4e85b68e793b.png)
+
+Selanjutnya buka kembali CLI dan ketik perintah berikut:
+![SS LANGKAH 5 (TAMBAHAN 2)](https://user-images.githubusercontent.com/56240719/123581919-14301c00-d807-11eb-8e9b-6d15ba670e43.png)
+
+Selanjutnya buka url http://localhost:8080/user/login seperti berikut:
+![SS LANGKAH 5 (TAMBAHAN 3)](https://user-images.githubusercontent.com/56240719/123582957-f663b680-d808-11eb-90a9-787b2311d96a.png)
+
+Namun sebelum mengakses urlnya, pastikan untuk menjalankan perintah **php spark serve** terlebih dahulu untuk menjalankan program **ci4** di **port 8080** dengan cara membuka **CLI** kemudian ketik perintah berikut:
+![SS LANGKAH 5 (TAMBAHAN 4)](https://user-images.githubusercontent.com/56240719/123583414-c10b9880-d809-11eb-8e3d-2a8532c23002.png)
+
+### Langkah 6
+#### Menambahkan Auth Filter
+Selanjutnya membuat filter untuk halaman admin. Buat file baru dengan nama **Auth.php** pada direktori **app/Filters** dan masukkan kode seperti berikut.
+![SS LANGKAH 6](https://user-images.githubusercontent.com/56240719/123584406-80ad1a00-d80b-11eb-9021-5744ec926008.png)
+
+Selanjutnya buka file **app/Config/Filters.php** tambahkan kode berikut:
+![SS LANGKAH 6 (TAMBAHAN)](https://user-images.githubusercontent.com/56240719/123584581-ce298700-d80b-11eb-84d0-635c6506e0fb.png)
+
+Selanjutnya buka file **app/Config/Routes.php** dan sesuaikan kodenya seperti berikut.
+![SS LANGKAH 6 (TAMBAHAN 2)](https://user-images.githubusercontent.com/56240719/123584761-206aa800-d80c-11eb-92fd-56b545a67986.png)
+
+### Langkah 7
+### Fungsi Logout
+Tambahkan method logout pada **Controller User** dan masukkan kode seperti berikut:
+![SS LANGKAH 7](https://user-images.githubusercontent.com/56240719/123586106-72acc880-d80e-11eb-803c-e5c32601a6df.png)
+
+### Langkah 8
+### Tombol Logout
+Menambahkan tombol **Logout** pada menu **header admin** dengan cara ke direktori **app\view\template** lalu buka file **admin_header.php** dan masukkan kode seperti berikut.
+![SS LANGKAH 8](https://user-images.githubusercontent.com/56240719/123586662-42b1f500-d80f-11eb-83e9-0d48c28d3375.png)
+
+Selanjutnya, tambahkan route logout dengan cara ke direktori **app\Config\Routes.php** dan masukkan kode seperti berikut.
+![SS LANGKAH 8 (TAMBAHAN)](https://user-images.githubusercontent.com/56240719/123586866-945a7f80-d80f-11eb-8859-86e47548977f.png)
+
+Setelah semuanya selesai, maka lakukan percobaan untuk mengakses menu admin dengan cara buka url dengan alamat http://localhost:8080/admin/artikel ketika alamat tersebut diakses, maka akan muncul halaman login seperti berikut.
+![SS LANGKAH 8 (TAMBAHAN 2)](https://user-images.githubusercontent.com/56240719/123587200-25315b00-d810-11eb-86c3-7f404b5eb13f.png)
+
+Berikut adalah halaman utama (menu admin) yang sudah ditambahkan tombol **Logout** untuk keluar dari menu ini dan kembali ke menu **Login**.
+![SS LANGKAH 8 (TAMBAHAN 3)](https://user-images.githubusercontent.com/56240719/123587453-85280180-d810-11eb-8136-fa3f6880ef7f.png)
 
 
