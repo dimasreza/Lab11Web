@@ -234,6 +234,7 @@ Buat folder baru dengan nama **user** pada direktori **app/views**, kemudian bua
 ### Langkah 5
 #### Membuat Database Seeder
 Database seeder digunakan untuk membuat data dummy. Untuk keperluan ujicoba modul login, kita perlu memasukkan data user dan password kedalam database. Untuk itu buat database seeder untuk tabel user. Buka **CLI**, kemudian ketik perintah berikut:
+
 ![SS LANGKAH 5](https://user-images.githubusercontent.com/56240719/123581354-e8606680-d805-11eb-8806-7cb4c6373eb1.png)
 
 Selanjutnya, buka file **UserSeeder.php** yang berada di lokasi direktori **/app/Database/Seeds/UserSeeder.php** kemudian isi dengan kode berikut:
