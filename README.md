@@ -261,12 +261,12 @@ Selanjutnya buka file **app/Config/Routes.php** dan sesuaikan kodenya seperti be
 ![SS LANGKAH 6 (TAMBAHAN 2)](https://user-images.githubusercontent.com/56240719/123584761-206aa800-d80c-11eb-92fd-56b545a67986.png)
 
 ### Langkah 7
-### Fungsi Logout
+#### Fungsi Logout
 Tambahkan method logout pada **Controller User** dan masukkan kode seperti berikut:
 ![SS LANGKAH 7](https://user-images.githubusercontent.com/56240719/123586106-72acc880-d80e-11eb-803c-e5c32601a6df.png)
 
 ### Langkah 8
-### Tombol Logout
+#### Tombol Logout
 Menambahkan tombol **Logout** pada menu **header admin** dengan cara ke direktori **app\view\template** lalu buka file **admin_header.php** dan masukkan kode seperti berikut.
 ![SS LANGKAH 8](https://user-images.githubusercontent.com/56240719/123586662-42b1f500-d80f-11eb-83e9-0d48c28d3375.png)
 
@@ -279,4 +279,44 @@ Setelah semuanya selesai, maka lakukan percobaan untuk mengakses menu admin deng
 Berikut adalah halaman utama (menu admin) yang sudah ditambahkan tombol **Logout** untuk keluar dari menu ini dan kembali ke menu **Login**.
 ![SS LANGKAH 8 (TAMBAHAN 3)](https://user-images.githubusercontent.com/56240719/123587453-85280180-d810-11eb-8136-fa3f6880ef7f.png)
 
+# Praktikum 14: Pagination dan Pencarian
+## Langkah-langkah Praktikum
+### Persiapan
+Hal pertama yang dilakukan adalah menjalankan Apache & MySQL server di XAMPP seperti berikut.
+![SS XAMPP](https://user-images.githubusercontent.com/56240719/124392395-829d3e80-dd1f-11eb-9c62-9ca5b8173905.png)
 
+### Langkah 1
+#### Membuat Pagination
+Pagination merupakan proses yang digunakan untuk membatasi tampilan yang panjang dari data yang banyak pada sebuah website. Fungsi pagination adalah memecah tampilan menjadi beberapa halaman tergantung banyaknya data yang akan ditampilkan pada setiap halaman. Untuk membuat pagination, buka Kembali **Controller Artikel** pada direktori **(htdocs\Lab11_php_ci\ci4\Controllers\Artikel.php)**, kemudian modifikasi kode pada method **admin_index** seperti berikut.
+![SS LANGKAH 1](https://user-images.githubusercontent.com/56240719/124393606-67cdc880-dd25-11eb-8aaf-9ee2d74236dc.png)
+
+Kemudian buka file **views/artikel/admin_index.php** dan tambahkan kode seperti berikut dibawah deklarasi tabel data.
+![SS LANGKAH 1 (TAMBAHAN)](https://user-images.githubusercontent.com/56240719/124393635-8e8bff00-dd25-11eb-9873-aab88a96d848.png)
+
+Setelah itu untuk melihat hasilnya, buka kembali menu **Dashboard** yang berisi daftar artikel maka hasilnya akan seperti berikut.
+![SS LANGKAH 1 (TAMBAHAN 2)](https://user-images.githubusercontent.com/56240719/124393779-45887a80-dd26-11eb-83c2-085fa61c5a40.png)
+
+### Langkah 2
+#### Membuat Pencarian
+Pencarian data digunakan untuk memfilter data. Untuk membuat pencarian data, buka kembali **Controller Artikel** pada direktori **(htdocs\Lab11_php_ci\ci4\Controllers\Artikel.php)**, pada method **admin_index** dan ubah kodenya seperti berikut.
+![SS LANGKAH 2](https://user-images.githubusercontent.com/56240719/124393980-6bfae580-dd27-11eb-9907-9f4b8d4cc85a.png)
+
+Kemudian buka kembali file **views/artikel/admin_index.php** dan tambahkan form pencarian sebelum deklarasi tabel seperti berikut:
+![SS LANGKAH 2 (TAMBAHAN)](https://user-images.githubusercontent.com/56240719/124394005-8a60e100-dd27-11eb-8bfe-4f612357b9e9.png)
+
+Dan pada link pager ubah seperti berikut.
+![SS LANGKAH 2 (TAMBAHAN 2)](https://user-images.githubusercontent.com/56240719/124394039-b8debc00-dd27-11eb-8121-102634f5226b.png)
+
+Selanjutnya ujicoba dengan membuka kembali halaman admin artikel, masukkan kata kunci tertentu pada form pencarian seperti berikut.
+![SS LANGKAH 2 (TAMBAHAN 3)](https://user-images.githubusercontent.com/56240719/124394133-36a2c780-dd28-11eb-93b2-2d725cae9f3e.png)
+
+### Langkah 3
+#### Upload Gambar
+Menambahkan fungsi unggah gambar pada tambah artikel. Buka kembali **Controller Artikel** pada direktori **(htdocs\Lab11_php_ci\ci4\Controllers\Artikel.php)**, sesuaikan kode pada method **add** seperti berikut.
+![SS LANGKAH 3](https://user-images.githubusercontent.com/56240719/124394443-ad8c9000-dd29-11eb-91bd-e5a742b1c2bc.png)
+
+Kemudian pada file **views/artikel/form_add.php** tambahkan field input, lalu sesuaikan tag form dengan menambahkan ecrypt type seperti berikut.
+![SS LANGKAH 3 (TAMBAHAN)](https://user-images.githubusercontent.com/56240719/124394562-2e4b8c00-dd2a-11eb-88a3-3bdb52ad19f1.png)
+
+Setelah itu untuk mengetahui hasilnya, ujicoba file upload dengan mengakses menu tambah artikel seperti berikut.
+![SS LANGKAH 3 (TAMBAHAN 2)](https://user-images.githubusercontent.com/56240719/124394628-6f43a080-dd2a-11eb-96ed-663555a96d01.png)
