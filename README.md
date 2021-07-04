@@ -320,3 +320,6 @@ Kemudian pada file **views/artikel/form_add.php** tambahkan field input, lalu se
 
 Setelah itu untuk mengetahui hasilnya, ujicoba file upload dengan mengakses menu tambah artikel seperti berikut.
 ![SS LANGKAH 3 (TAMBAHAN 2)](https://user-images.githubusercontent.com/56240719/124394628-6f43a080-dd2a-11eb-96ed-663555a96d01.png)
+
+Berikut adalah hasil dari artikel yang diupload dengan gambar.
+![SS LANGKAH 3 (TAMBAHAN 3)](https://user-images.githubusercontent.com/56240719/124395293-74eeb580-dd2d-11eb-84c7-37ac9cbad0ba.png)
