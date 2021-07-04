@@ -313,7 +313,7 @@ Selanjutnya ujicoba dengan membuka kembali halaman admin artikel, masukkan kata 
 ### Langkah 3
 #### Upload Gambar
 Menambahkan fungsi unggah gambar pada tambah artikel. Buka kembali **Controller Artikel** pada direktori **(htdocs\Lab11_php_ci\ci4\Controllers\Artikel.php)**, sesuaikan kode pada method **add** seperti berikut.
-![SS LANGKAH 3](https://user-images.githubusercontent.com/56240719/124394443-ad8c9000-dd29-11eb-91bd-e5a742b1c2bc.png)
+![SS LANGKAH 3](https://user-images.githubusercontent.com/56240719/124395002-052bfb00-dd2c-11eb-80ff-4e721fe46682.png)
 
 Kemudian pada file **views/artikel/form_add.php** tambahkan field input, lalu sesuaikan tag form dengan menambahkan ecrypt type seperti berikut.
 ![SS LANGKAH 3 (TAMBAHAN)](https://user-images.githubusercontent.com/56240719/124394562-2e4b8c00-dd2a-11eb-88a3-3bdb52ad19f1.png)
